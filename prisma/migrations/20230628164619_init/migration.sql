@@ -20,10 +20,9 @@ CREATE TABLE "Link" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "description" TEXT NOT NULL,
     "url" TEXT NOT NULL,
-    "imageUrl" TEXT,
+    "imageUrl" TEXT NOT NULL,
     "category" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "userId" INTEGER,
 
     CONSTRAINT "Link_pkey" PRIMARY KEY ("id")
 );

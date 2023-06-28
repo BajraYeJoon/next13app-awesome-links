@@ -1,12 +1,28 @@
 import Image from "next/image";
-import { links } from "@/data/links";
+import type { Link } from "@prisma/client";
+import { gql, useQuery } from "@apollo/client";
+
+const getAllLinks = gql`
+  query {
+    links {
+      id
+      title
+      url
+      description
+      imageUrl
+      category
+    }
+  }
+`;
 
 export default function Home() {
+  const { data, loading, error } = useQuery(getAllLinks);
+
   return (
     <main>
       <div className="container mx-auto max-w-5xl my-20">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {links.map((link) => (
+          {data.links.map((link: Link) => (
             <li key={link.id} className="shadow  max-w-md  rounded">
               <Image
                 className="shadow-sm"
