@@ -1,8 +1,7 @@
-import { ApolloProvider } from "@apollo/client";
+// import { ApolloWrapper } from "@/lib/apollo-wrapper";
 import Header from "./components/Layout/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import apolloClient from "@/lib/apollo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ApolloProvider client={apolloClient}>
-          <Header />
-          {children}
-        </ApolloProvider>
+        {/* <ApolloWrapper> */}
+        <Header />
+        {children}
+        {/* </ApolloWrapper> */}
       </body>
     </html>
   );
